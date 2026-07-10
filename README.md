@@ -32,6 +32,19 @@
 
 ---
 
+## 🏗️ 아키텍처
+
+```mermaid
+flowchart TD
+    V["View<br>JSP · Spring MVC"] --> CT["Controller<br>DrawController"]
+    CT --> SV["Service<br>추첨 로직 · 중복 응모 방지"]
+    SV --> RP["Repository<br>Spring Data JPA · Hibernate"]
+    RP --> DB["DB<br>MySQL(dev) · Oracle(prod)"]
+    DM["Domain<br>Product · Customer · Draw"] -.-> SV
+```
+
+---
+
 ## 📈 성능 측정
 - Apache JMeter로 TPS, 응답속도 측정
 - Thread Group, Loop Count 구성 실험
